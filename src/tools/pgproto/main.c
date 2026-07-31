@@ -368,6 +368,7 @@ process_message_type(int kind, char *buf, PGconn *conn)
 	char	   *err_msg;
 	char	   *data;
 	char	   *bufp;
+	long		stime;
 
 	switch (kind)
 	{
@@ -459,6 +460,13 @@ process_message_type(int kind, char *buf, PGconn *conn)
 
 		case 'F':
 			process_function_call(buf, conn);
+			break;
+
+		case 's':	/* frontend sleep request */
+			SKIP_TABS(buf);
+			stime = buffer_read_int(buf, &bufp);
+			fprintf(stderr, "FE=> Sleep %ld\n", stime);
+			usleep((useconds_t) stime * 1000);
 			break;
 
 		default:

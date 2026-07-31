@@ -206,13 +206,14 @@ Pgpool-II documentation
    'z' can be useful for 'H' message test when you already know how
    many reply messages will come.
    -->
-   'Y'と'z'と'y'は例外です。
+   'Y'と'z'と'y'と's'は例外です。
    'Y'は、Ready for queryが受信されるまで、バックエンドからメッセージを読み取ります。
    'y'は、バックエンドからメッセージを受信している間はメッセージを読み取り、1秒間メッセージを受信しなかった場合停止します。
    'Y'は、拡張クエリのSync ('S')、簡易問い合わせ ('Q')の応答を待つために使用できます。
    'y'は、Flush ('H')後にメッセージを受信するために使用できます。
    'z'は、バックエンドから1つメッセージを読みます。1秒間メッセージを受信しなかった場合停止します。
    'z'は、事前にいくつメッセージが届くかわかっている場合に'H'のテストのために利用することができます。
+   's'は、指定されたミリ秒間pgprotoをsleepさせます。
   </para>
   <para>
    <!--

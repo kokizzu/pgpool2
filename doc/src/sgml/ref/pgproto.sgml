@@ -142,7 +142,7 @@ Pgpool-II documentation
    indicates the message kind specified in the PostgreSQL frontend/backend protocol.
   </para>
   <para>
-   Exceptions are 'Y' , 'y' and 'z'. 'Y' reads messages from backend
+   Exceptions are 'Y' , 'y', 'z' and 's'. 'Y' reads messages from backend
    until 'Ready for query' is received.
    'y' reads messages from backend while messages are coming from backend then stops
    if messages are not available for 1 second.
@@ -152,6 +152,7 @@ Pgpool-II documentation
    If you want to read multiple messages, you can use repeat 'z' for the message count.
    'z' can be useful for 'H' message test when you already know how
    many reply messages will come.
+   's' causes pgproto to sleep for the specified milliseconds.
   </para>
   <para>
    If you want to include a " (double quotation) in a string data type,
